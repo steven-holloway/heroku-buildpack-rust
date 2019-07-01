@@ -152,5 +152,5 @@ if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
   which cargo
   cargo install diesel_cli $DIESEL_FLAGS || echo "already installed"
   which diesel
-  cp $(which diesel) target/release/
+  cp $(which diesel) ./
 fi
