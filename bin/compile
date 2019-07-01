@@ -146,10 +146,11 @@ fi
 
 # Install diesel so we can use it for migrations
 if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
+  pwd
   echo $CARGO_HOME
   echo "-----> Installing diesel"
   which cargo
   cargo install diesel_cli $DIESEL_FLAGS || echo "already installed"
   which diesel
-  cp $(which diesel) /app/target/release/
+  cp $(which diesel) target/release/
 fi
