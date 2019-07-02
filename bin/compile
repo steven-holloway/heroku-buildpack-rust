@@ -151,6 +151,7 @@ if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
   echo "-----> Installing diesel"
   which cargo
   cargo install diesel_cli $DIESEL_FLAGS || echo "already installed"
-  which diesel
-  cp $(which diesel) ./
+  cargo install diesel_cli --no-default-features --features postgres --root "$CACHE_DIR/diesel_build" --force
+  cp "$CACHE_DIR/diesel_build/bin/diesel" "$BUILD_DIR/bin/diesel"
+  
 fi
